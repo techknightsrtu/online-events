@@ -1,3 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+
 body{
-	
+	scroll-behavior: smooth;
+	font-family: roboto;
 }
+
+/*----------------------
+Typography
+------------------------*/
+
+
+/*-----------------------
+Navbar
+------------------------*/
+/*Setting the dimensions for logo*/
+nav .navbar-brand img{
+	width: 80px;
+	height: auto;
+}
+@media only screen and (min-device-width:350px) and (max-device-width:1000px){
+	nav.navbar{
+       font-size: 2em;
+	}
+	nav ul.navbar-nav{
+	   background: rgba(255,230,153,0.6);
+	   border-radius: 1.1em;
+	}
+	nav.navbar>.navbar-brand>img{
+		width: 150px;
+		height: auto;
+	}
+}
+

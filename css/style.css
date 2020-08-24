@@ -18,6 +18,49 @@ nav .navbar-brand img{
 	width: 80px;
 	height: auto;
 }
+
+.footer{
+	background-color:  #48484B; 
+	display: flex;
+	flex-wrap: wrap;
+	height: 400px;
+}
+.club-logo{
+	flex: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.club-logo> img{
+	width: 600px;
+	margin-right: 20%;
+}
+.details{
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.address-text{
+	list-style: none;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 25px;
+}
+.icons{
+	list-style: none;
+	margin-top: 20px;
+}
+.icons>li{
+	display: inline-block;
+	padding:7px;
+	
+}
+.icons>li>img{
+	width:50px;
+}
+
 @media only screen and (min-device-width:350px) and (max-device-width:1000px){
 	nav.navbar{
        font-size: 2em;
@@ -29,6 +72,18 @@ nav .navbar-brand img{
 	nav.navbar>.navbar-brand>img{
 		width: 150px;
 		height: auto;
+	}
+	.footer{
+		flex-direction: column;
+	}
+	.club-logo> img{
+		width: 300px !important;
+	}
+	ul.address-text>li{
+		font-size: 10px !important;
+	}
+	.icons>li>img{
+		width: auto;
 	}
 }
 

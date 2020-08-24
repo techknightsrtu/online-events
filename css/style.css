@@ -23,7 +23,7 @@ nav .navbar-brand img{
 	background-color:  #48484B; 
 	display: flex;
 	flex-wrap: wrap;
-	height: 400px;
+	height: 337px;
 }
 .club-logo{
 	flex: 2;
@@ -50,7 +50,7 @@ nav .navbar-brand img{
 }
 .icons{
 	list-style: none;
-	margin-top: 18px;
+	margin-top: 30px;
 }
 .icons>li{
 	display: inline-block;
@@ -60,8 +60,17 @@ nav .navbar-brand img{
 .icons>li>img{
 	width:50px;
 }
+.final-footer{
+	height: 60px;
+	background-color: #A9A9A9;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-size: 20px;
+	font-family: 'Lato', sans-serif;
+}
 
-@media only screen and (min-device-width:350px) and (max-device-width:1000px){
+@media only screen and (min-width:350px) and (max-width:1000px){
 	nav.navbar{
        font-size: 2em;
 	}
@@ -80,7 +89,7 @@ nav .navbar-brand img{
 		width: 300px !important;
 	}
 	ul.address-text>li{
-		font-size: 10px !important;
+		font-size: 15px !important;
 	}
 	.icons>li>img{
 		width: auto;

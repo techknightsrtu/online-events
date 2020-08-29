@@ -3,6 +3,7 @@
 body{
 	scroll-behavior: smooth;
 	font-family: roboto;
+	overflow-x: hidden;
 }
 
 /*----------------------
@@ -17,57 +18,6 @@ Navbar
 nav .navbar-brand img{
 	width: 80px;
 	height: auto;
-}
-
-.footer{
-	background-color:  #48484B; 
-	display: flex;
-	flex-wrap: wrap;
-	height: 337px;
-}
-.club-logo{
-	flex: 2;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.club-logo> img{
-	width: 500px;
-	margin-right: 20%;
-}
-.details{
-	flex: 1;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-}
-
-.address-text{
-	list-style: none;
-	color: white;
-	font-family: 'Lato', sans-serif;
-	font-size: 22px;
-}
-.icons{
-	list-style: none;
-	margin-top: 30px;
-}
-.icons>li{
-	display: inline-block;
-	padding:7px;
-	
-}
-.icons>li>img{
-	width:50px;
-}
-.final-footer{
-	height: 60px;
-	background-color: #A9A9A9;
-	color: white;
-	text-align: center;
-	padding: 10px;
-	font-size: 20px;
-	font-family: 'Lato', sans-serif;
 }
 
 @media only screen and (min-width:350px) and (max-width:1000px){
@@ -93,6 +43,80 @@ nav .navbar-brand img{
 	}
 	.icons>li>img{
 		width: auto;
+	}
+}
+
+/*---------------------------
+Footer
+---------------------------*/
+.footer{
+	background-color: #292929; 
+	display: flex;
+	flex-wrap: wrap;
+	height: 337px;
+}
+.club-logo{
+	flex: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.club-logo> img{
+	width: 500px;
+	margin-right: 20%;
+}
+.details{
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.address-text{
+	list-style: none;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 19px;
+}
+.icons{
+	list-style: none;
+	margin-top: 30px;
+}
+.icons>li{
+	display: inline-block;
+	padding:7px;
+	
+}
+.icons>li>img{
+	width:45px;
+}
+.final-footer{
+	background-color: #707066;
+	color: white;
+	text-align: center;
+	padding: 15px;
+	font-size: 16px;
+	font-family: 'Lato', sans-serif;
+}
+@media only screen and (min-width:350px) and (max-width:1000px){
+	div.footer{
+		flex-wrap: nowrap;
+	}
+	div.details{
+		flex-wrap: nowrap;
+		align-self: center;
+		text-align: center;
+	}
+	div.club-logo{
+		position: relative;
+		left:2.2em;
+		align-self: center;
+	}
+	ul.icons{
+		padding-bottom: 0.4em;
+	}
+	ul.icons>li{
+		align-self: center;
 	}
 }
 

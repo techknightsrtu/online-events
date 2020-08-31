@@ -18,6 +18,14 @@ Navbar
 nav .navbar-brand img{
 	width: 80px;
 	height: auto;
+	
+}
+nav{
+	background-color: rgba(0,0,0,0.0);
+	transition: all 700 ease-in;
+}
+nav.scrolled{
+	background-color: rgba(0,0,0,0.6);
 }
 
 @media only screen and (min-width:350px) and (max-width:1000px){
@@ -45,6 +53,8 @@ nav .navbar-brand img{
 		width: auto;
 	}
 }
+/*cards----------------------
+---------------------------*/
 
 /*---------------------------
 Footer

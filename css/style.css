@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
 
+:root{
+	--cRed :rgba(241, 21, 58, 0.678);
+}
 body{
 	scroll-behavior: smooth;
-	font-family: roboto;
+	font-family: 'Lato', sans-serif;
 	overflow-x: hidden;
 }
 
@@ -56,6 +59,89 @@ nav.scrolled{
 /*cards----------------------
 ---------------------------*/
 
+.eventCard{
+	display: flex;
+	border-radius: 1px;
+	 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	 transition: all 0.08s ease-in;
+	 height: 226px;
+
+}
+.eventCard:hover{
+	box-shadow: 1px 4px 8px 2px rgba(0, 0, 0, 0.25);
+}
+.eventImg{
+	flex: 1;
+	background-image: url(../imgs/C1.png) ;
+	background-size: cover;
+	position: relative;
+}
+/* .eventImg>.date{
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	background-color: darkgrey;
+	width: 39px;
+	height: 39px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 1;
+
+} */
+.card-body{
+	width: 50%;
+	position: relative;
+	overflow: hidden;
+}
+.card-title{
+	font-size: 22px;
+	letter-spacing: 1px;
+	line-height: 30px;
+	color: #333333
+}
+.card-body> .event-type{
+	position: absolute;
+	bottom: 28%;
+	left: 5%;
+	font-size: 13px;
+	letter-spacing: 1px;
+	color: #3E8CD2;
+}
+.card-body> .register{
+	position: absolute;
+	bottom: 7%;
+	border: 0px;
+	padding: 7px 45px;
+	border-radius: 25px;
+	letter-spacing: 1px;
+	color: #999999;
+	transition: all ease 0.5s;
+}
+.eventCard:hover .register{
+	color: black;
+	font-weight: bold;
+	background-color: var(--cRed);
+}
+.card-body> .event-fee{
+	position: absolute;
+	bottom: 10%;
+	right: 5%;
+	color: #08911F;
+}
+.card-body> .share{
+	position: absolute;
+	top: 7%;
+	right: 5%;
+}
+.share> button{
+	padding: 9px 14px;
+	border: 0px;
+	border-radius: 50%;
+}
+
+.event-date, .event-venue,.share,.card-subtitle{
+	color: rgba(153, 153, 153, 0.8);
+}
 /*---------------------------
 Footer
 ---------------------------*/

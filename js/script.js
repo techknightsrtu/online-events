@@ -6,3 +6,4 @@ $(window).resize(()=>{imageEnd= bgImage[0].clientHeight})
 $(window).scroll(function(){
     $('nav').toggleClass('scrolled', $(this).scrollTop()>imageEnd)
    })
+

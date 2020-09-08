@@ -150,6 +150,32 @@ nav.scrolled{
 .event-date, .event-venue,.share,.card-subtitle{
 	color: rgba(153, 153, 153, 0.8);
 }
+/* modal */
+.modal-header>*,.modal-header{
+	display: block;
+	margin: 15px auto;
+	width: 90%;
+}
+/* form */
+
+.regform >*{
+	display: block;
+	margin: 15px auto;
+	padding: 15px 25px;
+	width: 90%;
+	border: 0px;
+	border-radius: 50px;
+	background-color:rgba(240, 238, 238, 0.8) ;
+	font-size: medium;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.regform>label{
+	background-color: transparent;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
 /*---------------------------
 Footer
 ---------------------------*/

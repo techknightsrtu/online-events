@@ -20,6 +20,14 @@ nav .navbar-brand img{
 	height: auto;
 }
 
+/*   Carousel    */
+.carousel-inner{
+	height: 100vh;
+}
+.carousel-item{
+	background-size: contain;
+}
+
 @media only screen and (min-width:350px) and (max-width:1000px){
 	nav.navbar{
        font-size: 2em;

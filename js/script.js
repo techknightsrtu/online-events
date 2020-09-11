@@ -1,4 +1,4 @@
-const bgImage = document.querySelector('.carousel-inner');
+const bgImage = document.querySelector('.navbar');
 let imageEnd = bgImage.clientHeight;
 
 $(window).resize(()=>{imageEnd= bgImage.clientHeight})

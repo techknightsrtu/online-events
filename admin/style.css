@@ -11,17 +11,17 @@ body{
     align-items: center;
 }
 .login-container .sub-container{
-    border: 1px solid #ddd;
-    padding: 20px;
+    width: 50%;
+    border: 1px solid #bbb;
+    padding: 40px;
 }
-.login-container input{
-    margin: 0;
-    font-size: 18px;
-    max-width: 100%;
-    width: 100%;
-    display: block;
+.login-container input:focus{
+    border: 1px solid #dc3545;
 }
-.login-container label{
-    font-weight: 600;
-    display: block;
+.form-control:focus {
+    box-shadow: none;
 }
+.login-container form .btn{
+    display: flex;
+    margin: auto;
+} 

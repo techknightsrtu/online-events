@@ -1,20 +1,38 @@
+//checks if the details present are true or not
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        var session = sessionStorage
+    }
+    else {
+        alert('I am working');
+    }
+});
+
+//global
 var loginForm = document.querySelector('form');
 loginForm.addEventListener('submit', login);
 
+//login form
 function login(e){
     e.preventDefault(); //to stop actions
     var userN = document.getElementById('userN').value;
-    var encryptedUser = CryptoJS.AES.encrypt(userN, "Secret Passphrase");
-    var decryptedUser = CryptoJS.AES.decrypt(encryptedUser, "Secret Passphrase");
-
     var pwd = document.getElementById('pwd').value;
-    var encryptedPwd = CryptoJS.AES.encrypt(pwd, "Secret Passphrase"); //encrypting password
-    var decryptedPwd = CryptoJS.AES.decrypt(encryptedPwd, "Secret Passphrase"); //descrepting password
-    
-    if (decryptedUser == '746563686b6e696768747341646d696e' && decryptedPwd == '746563686b6e696768747341646d696e'){ //remains same always
-        alert('success');
-    }
-    else{
-        alert('Sorry! Can not login');
-    }
+
+    firebase.auth().signInWithEmailAndPassword(userN, pwd).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+        alert(errorMessage);
+    });
 }
+
+//Firebase logout function
+function logout(){
+    firebase.auth().signOut().then(function () {
+        // Sign-out successful.
+    }).catch(function (error) {
+        // An error happened.
+    });
+}
+

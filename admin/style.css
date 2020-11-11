@@ -1,0 +1,27 @@
+body{
+    background: #fff;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    font-size: 20px;
+}
+.login-container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container .sub-container{
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+.login-container input{
+    margin: 0;
+    font-size: 18px;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+}
+.login-container label{
+    font-weight: 600;
+    display: block;
+}

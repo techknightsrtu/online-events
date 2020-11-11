@@ -1,22 +1,27 @@
-//checks if the details present are true or not
-firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-        var session = sessionStorage
-    }
-    else {
-        alert('I am working');
-    }
-});
-
 //global
-var loginForm = document.querySelector('form');
-loginForm.addEventListener('submit', login);
+var add = [
+    "",
+    ""
+];
+function loadForm(){
+    var loginForm = document.querySelector('form');
+    loginForm.addEventListener('submit', login);    
+}
 
 //login form
 function login(e){
     e.preventDefault(); //to stop actions
     var userN = document.getElementById('userN').value;
     var pwd = document.getElementById('pwd').value;
+    alert('h');
+
+    //checks if the details present are true or not
+    firebase.auth().onAuthStateChanged((user) => {
+        //if user exists - provide entry
+        if (user) {
+            window.location = "../log/index.html";
+        }
+    });
 
     firebase.auth().signInWithEmailAndPassword(userN, pwd).catch(function (error) {
         // Handle Errors here.
@@ -34,5 +39,6 @@ function logout(){
     }).catch(function (error) {
         // An error happened.
     });
+    window.location = "../admin/index.html";
 }
 

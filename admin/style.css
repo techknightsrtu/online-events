@@ -15,6 +15,11 @@ body{
     border: 1px solid #bbb;
     padding: 40px;
 }
+@media (max-width: 1200px){
+    .login-container .sub-container{
+        width: 80%;
+    }
+}
 .login-container input:focus{
     border: 1px solid #dc3545;
 }

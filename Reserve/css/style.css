@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+@import url('https://fonts.googleapis.com/css2?family=Kufam:wght@400;600&family=Montserrat:wght@300;400;500&display=swap');
+
+:root{
+	--cRed :rgba(241, 21, 58, 0.678);
+}
+html{
+	scroll-behavior: smooth;
+}
+body{
+	scroll-behavior: smooth;
+	font-family: 'Kufam', sans-serif;
+	overflow-x: hidden;
+}
+
+/*----------------------
+Typography
+------------------------*/
+
+/*---------------------
+ Loader
+ --------------------*/
+.loader{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	z-index: 999!important;
+	position: fixed;
+	overflow:hidden;
+	width: 100%;
+}
+.loader img{
+	max-width: 70%;
+	animation: fadeIn 2s ease;
+}
+.remove-loader{
+	opacity: 0;
+	pointer-events: none;
+}
+@keyframes fadeIn{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+/*-----------------------
+Navbar
+------------------------*/
+/*Setting the dimensions for logo*/
+nav .navbar-brand img{
+	width: 80px;
+	height: auto;
+	
+}
+nav{
+	background-color: rgba(0,0,0,0.0);
+	transition: all 700 ease-in;
+	z-index: 200!important;
+}
+.fixed-top{
+	z-index: 200!important;
+}
+nav.scrolled{
+	background-color: rgba(0,0,0,0.8);
+	transition-duration: 0.6s;
+}
+
+/*   Carousel    */
+
+.carousel-item{
+	background-size: contain;
+}
+
+@media only screen and (min-width:250px) and (max-width:1000px){
+	nav.navbar{
+       font-size: 2em;
+	}
+	nav ul.navbar-nav{
+	   background: rgba(255,230,153,.95);
+	   border-radius: 1.1em;
+	}
+	nav.navbar>.navbar-brand>img{
+		width: 80px;
+		height: auto;
+	}
+	.footer{
+		flex-direction: column;
+	}
+	.club-logo> img{
+		width: 300px !important;
+	}
+	ul.address-text>li{
+		font-size: 15px !important;
+	}
+	.icons>li>img{
+		width: auto;
+	}
+	nav ul li a{
+		text-align: center;
+	}
+}
+/*cards----------------------
+---------------------------*/
+
+.eventCard{
+	font-family: 'Montserrat';
+	display: flex;
+	border-radius: 1px;
+	 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	 transition: all 0.08s ease-in;
+	 height: 226px;
+
+}
+.eventCard:hover{
+	box-shadow: 1px 4px 8px 2px rgba(0, 0, 0, 0.25);
+}
+.eventImg{
+	flex: 1;
+	background-image: url(../imgs/C1.png) ;
+	background-size: cover;
+	position: relative;
+}
+@media only screen and (min-width: 300px) and (max-width: 450px){
+	div.eventImg{
+		display: none;
+	}
+}
+/* .eventImg>.date{
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	background-color: darkgrey;
+	width: 39px;
+	height: 39px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 1;
+
+} */
+.card-body{
+	width: 50%;
+	position: relative;
+	overflow: hidden;
+}
+.card-title{
+	font-size: 22px;
+	letter-spacing: 1px;
+	line-height: 30px;
+	color: #333333
+}
+.card-body> .event-type{
+	position: absolute;
+	bottom: 28%;
+	left: 5%;
+	font-size: 13px;
+	letter-spacing: 1px;
+	color: #3E8CD2;
+}
+.card-body> .register{
+	position: absolute;
+	bottom: 7%;
+	border: 0px;
+	padding: 7px 45px;
+	border-radius: 25px;
+	letter-spacing: 1px;
+	color: #999999;
+	transition: all ease 0.5s;
+}
+.eventCard:hover .register{
+	color: black;
+	font-weight: bold;
+	background-color: var(--cRed);
+}
+.card-body> .event-fee{
+	position: absolute;
+	bottom: 10%;
+	right: 5%;
+	color: #08911F;
+}
+.card-body> .share{
+	position: absolute;
+	top: 7%;
+	right: 5%;
+}
+.share> button{
+	padding: 9px 14px;
+	border: 0px;
+	border-radius: 50%;
+}
+
+.event-date, .event-venue,.share,.card-subtitle{
+	color: rgba(153, 153, 153, 0.8);
+}
+/* modal */
+.modal-header>*,.modal-header{
+	display: block;
+	margin: 15px auto;
+	width: 90%;
+}
+/* form */
+
+.regform >*{
+	font-family: 'Montserrat';
+	display: block;
+	margin: 15px auto;
+	padding: 15px 25px;
+	width: 90%;
+	border: 0px;
+	border-radius: 50px;
+	background-color:rgba(240, 238, 238, 0.8) ;
+	font-size: medium;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.regform>label{
+	background-color: transparent;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+/*---------------------------
+Footer
+---------------------------*/
+.footer{
+	background-color: #292929; 
+	display: flex;
+	flex-wrap: wrap;
+	height: 337px;
+}
+.club-logo{
+	flex: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.club-logo> img{
+	width: 500px;
+	margin-right: 20%;
+}
+.details{
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.address-text{
+	list-style: none;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 19px;
+}
+.icons{
+	list-style: none;
+	margin-top: 30px;
+}
+.icons>li{
+	display: inline-block;
+	padding:7px;
+	
+}
+.icons>li>img{
+	width:45px;
+}
+.final-footer{
+	text-align: center;
+	padding: 15px;
+	font-size: 16px;
+	font-family: 'Lato', sans-serif;
+}
+@media only screen and (min-width:350px) and (max-width:1000px){
+	div.footer{
+		flex-wrap: nowrap;
+	}
+	div.details{
+		flex-wrap: nowrap;
+		align-self: center;
+		text-align: center;
+	}
+	div.club-logo{
+		position: relative;
+		left:2.2em;
+		align-self: center;
+	}
+	ul.icons{
+		padding-bottom: 0.4em;
+	}
+	ul.icons>li{
+		align-self: center;
+	}
+}
+

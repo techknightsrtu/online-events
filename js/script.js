@@ -38,13 +38,13 @@ function firebaseCallPull(){
         </div>
         `;
         var regBtn = document.querySelector('.register');
-        regBtn.setAttribute('data-target', `#${newEvent.eventName}`);
+        regBtn.setAttribute('data-target', `#${newEvent.eventCode}`);
         
-        addModal(newEvent.eventName, newEvent.eventDesc);
+        addModal(newEvent.eventName, newEvent.eventDesc, newEvent.eventCode);
     });
 }
 
-function addModal(eventName, eventDesc){
+function addModal(eventName, eventDesc, eventCode){
     eventRow.innerHTML += `<div class="modal fade" id="regForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -54,11 +54,11 @@ function addModal(eventName, eventDesc){
 
                        <div class="modal-body">
                             <form class="regform" action="get" name="registrationForm">
-                                <input type="text" name="name" id="name" placeholder="name">
-                                <input type="email" name="email" id="email" placeholder="email">
-                                <input type="number" name="phone-number" id="phone-number" placeholder="phone-number">
+                                <input type="text" name="name" id="name" placeholder="name" required>
+                                <input type="email" name="email" id="email" placeholder="email" required>
+                                <input type="number" name="phone-number" id="phone-number" placeholder="phone-number" required>
                                 <label for="year">Select your year:</label>
-                                <select name="year" id="year" form="registrationForm">
+                                <select name="year" id="year" required>
                                     <option value="1">1st year</option>
                                     <option value="2">2nd year</option>
                                     <option value="3">3rd year</option>
@@ -79,8 +79,11 @@ function addModal(eventName, eventDesc){
             </div>`
           
             var modal = document.querySelector('.modal');
-            modal.setAttribute('id', eventName);
+            modal.setAttribute('id', eventCode);
+            var form = document.querySelector('form');
+            form.setAttribute('id', eventCode);          
 
+            
 }
 
 

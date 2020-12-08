@@ -53,7 +53,7 @@ function addModal(eventName, eventDesc, eventCode){
                        <p class="modal-description">${eventDesc}</p></div>
 
                        <div class="modal-body">
-                            <form class="regform" action="get" name="registrationForm">
+                            <form class="regform" name="registrationForm">
                                 <input type="text" name="name" id="name" placeholder="name" required>
                                 <input type="email" name="email" id="email" placeholder="email" required>
                                 <input type="number" name="phone-number" id="phone-number" placeholder="phone-number" required>
@@ -66,12 +66,9 @@ function addModal(eventName, eventDesc, eventCode){
                                 </select>
                                 <label for="comments">Any comments</label>
                                 <textarea name="comments" id="comments" cols="10" rows="5"></textarea>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </form>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Register</button>
                         </div>
 
                     </div>
@@ -82,9 +79,36 @@ function addModal(eventName, eventDesc, eventCode){
             modal.setAttribute('id', eventCode);
             var form = document.querySelector('form');
             form.setAttribute('id', eventCode);          
-
             
+            //sending data to firebase database
+            var refVariable = firebase.database().ref().child('regestrationDetails');
+            //on submit event
+            document.querySelector(`#${eventCode}`).addEventListener("submit", submitForm);
+
+            function submitForm(e) {
+               //to prevent from loading default functions
+               e.pre
+               var name = document.getElementById("name").value;
+               var email = document.getElementById("email").value;
+               //Just to check if working or Not: console.log(email);
+
+               saveDetails(email, name);
+
+               document.querySelector("form").reset();
+               alert('Form Submitted');
+            }
+
+            function saveDetails(email, name) {
+               var newRefVariable = refVariable.push();
+               newRefVariable.set(
+                   {
+                       email: email,
+                       name: name
+                   }
+               );
+           }
 }
+
 
 
 firebaseCallPull();

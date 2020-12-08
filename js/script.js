@@ -90,7 +90,8 @@ function firebasePush(eventCode) {
     document.querySelector(`#${eventCode}`).addEventListener("submit", submitForm);
 
     function submitForm(e) {
-
+        
+        e.preventDefault();
         //to prevent from loading default functions
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
@@ -100,21 +101,27 @@ function firebasePush(eventCode) {
         //Just to check if working or Not: console.log(email);
 
         saveDetails(email, name, phoneNo, year, comments, eventCode);
-        alert('Form Submitted');
+        document.querySelector('form').reset();
     }
 
     function saveDetails(email, nam, phnNo, yr, coms, eventCode) {
-        var newRefVariable = refVariable.push();
-        newRefVariable.set(
-            {
-                Email: email,
-                Name: nam,
-                Phone: phnNo,
-                Year: yr,
-                Comments: coms,
-                ForEvent: eventCode
-            }
-        );
+        if (phnNo.length != 10) {
+            alert('Not a valid phone number');
+        }
+        else{
+            var newRefVariable = refVariable.push();
+            newRefVariable.set(
+                {
+                    Email: email,
+                    Name: nam,
+                    Phone: phnNo,
+                    Year: yr,
+                    Comments: coms,
+                    ForEvent: eventCode
+                }
+            );
+            alert('Form Submitted');
+        }
     }
 }
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Techknights | Events</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+  <!--Local stylesheet-->
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  
+  <style>
+     th{
+       border: 1px solid #ddd;
+     }
+  </style>
+
+
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Event Code</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Year</th>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+  </table>
+  
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase.js"></script>
+    
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyC7ryDNTl8DrvhiObD7FsAO3D--RBujAx8",
+      authDomain: "online-events-techknightsrtu.firebaseapp.com",
+      projectId: "online-events-techknightsrtu",
+      storageBucket: "online-events-techknightsrtu.appspot.com",
+      messagingSenderId: "165048043385",
+      appId: "1:165048043385:web:6939c3c46246864741d1a8"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>
+       var eventRef = firebase.database().ref("Events/");
+
+        eventRef.on("child_added", function (data, prevChildKey) {
+          var newEvent = data.val();
+          document.body.innerHTML += `<tr><td>${newEvent.eventName}</td>
+                                          <td>${newEvent.eventDate}</td>
+                                          <td>${newEvent.eventVenue}</td>
+                                          <td>${newEvent.eventType}</td>
+                                          <td>${newEvent.eventFee}</td>
+                                      </tr>`;
+        });
+        
+  </script>
+
+
+
+</body>
+
+</html>

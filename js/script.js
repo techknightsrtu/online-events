@@ -80,38 +80,39 @@ function addModal(eventName, eventDesc, eventCode){
             var form = document.querySelector('form');
             form.setAttribute('id', eventCode);          
             
-
-
-            
-            //sending data to firebase database
-            var refVariable = firebase.database().ref().child('regestrationDetails');
-            //on submit event
-            document.querySelector(`#${eventCode}`).addEventListener("submit", submitForm);
-
-            function submitForm(e) {
-               //to prevent from loading default functions
-               e.pre
-               var name = document.getElementById("name").value;
-               var email = document.getElementById("email").value;
-               //Just to check if working or Not: console.log(email);
-
-               saveDetails(email, name);
-
-               document.querySelector("form").reset();
-               alert('Form Submitted');
-            }
-
-            function saveDetails(email, name) {
-               var newRefVariable = refVariable.push();
-               newRefVariable.set(
-                   {
-                       email: email,
-                       name: name
-                   }
-               );
-           }
+            firebasePush(eventCode);
 }
 
+function firebasePush(eventCode) {
+    //sending data to firebase database
+    var refVariable = firebase.database().ref().child('regestrationDetails');
+    //on submit event
+    document.querySelector(`#${eventCode}`).addEventListener("submit", submitForm);
+
+    function submitForm(e) {
+        //to prevent from loading default functions
+        e.preventDefault();
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+
+        //Just to check if working or Not: console.log(email);
+
+        saveDetails(email, name);
+
+        document.querySelector("form").reset();
+        alert('Form Submitted');
+    }
+
+    function saveDetails(email, name) {
+        var newRefVariable = refVariable.push();
+        newRefVariable.set(
+            {
+                email: email,
+                name: name
+            }
+        );
+    }
+}
 
 
 firebaseCall();

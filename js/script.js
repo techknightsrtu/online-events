@@ -1,5 +1,6 @@
 const bgImage = document.querySelector('.navbar');
 let imageEnd = bgImage.clientHeight;
+var eventRow = document.querySelector('.evt-row');
 
 //for removing loader
 var loader = document.querySelector('.loader');
@@ -21,8 +22,6 @@ function firebaseCallPull(){
 
     eventRef.on("child_added", function (data, prevChildKey) {
         var newEvent = data.val();
-
-        var eventRow = document.querySelector('.evt-row');
         eventRow.innerHTML += `<div class="col-10 col-lg-5 py-3 py-lg-0 card-box">
           <div class="eventCard">
             <div class="eventImg"></div>
@@ -37,12 +36,21 @@ function firebaseCallPull(){
             </div>
           </div>
         </div>
-        <div class="modal fade" id="regForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        `;
+        var regBtn = document.querySelector('.register');
+        regBtn.setAttribute('data-target', `#${newEvent.eventName}`);
+        
+        addModal(newEvent.eventName, newEvent.eventDesc);
+    });
+}
+
+function addModal(eventName, eventDesc){
+    eventRow.innerHTML += `<div class="modal fade" id="regForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                       <h5 class="modal-title" id="exampleModalLongTitle">${newEvent.eventName}</h5>
-                       <p class="modal-description">${newEvent.eventDesc}</p></div>
+                       <h5 class="modal-title" id="exampleModalLongTitle">${eventName}</h5>
+                       <p class="modal-description">${eventDesc}</p></div>
 
                        <div class="modal-body">
                             <form class="regform" action="get" name="registrationForm">
@@ -69,11 +77,11 @@ function firebaseCallPull(){
                     </div>
                 </div>
             </div>`
-        ;
-        var regBtn = document.querySelector('.register');
-        regBtn.setAttribute('id', `${newEvent.eventName}`);
+          
+            var modal = document.querySelector('.modal');
+            modal.setAttribute('id', eventName);
 
-    });
 }
+
 
 firebaseCallPull();

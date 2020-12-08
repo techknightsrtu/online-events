@@ -90,25 +90,29 @@ function firebasePush(eventCode) {
     document.querySelector(`#${eventCode}`).addEventListener("submit", submitForm);
 
     function submitForm(e) {
+
         //to prevent from loading default functions
-        e.preventDefault();
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
-
+        var phoneNo = document.querySelector('#phone-number').value;
+        var year = document.querySelector('#year').value;
+        var comments = document.querySelector('#comments').value;
         //Just to check if working or Not: console.log(email);
 
-        saveDetails(email, name);
-
-        document.querySelector("form").reset();
+        saveDetails(email, name, phoneNo, year, comments, eventCode);
         alert('Form Submitted');
     }
 
-    function saveDetails(email, name) {
+    function saveDetails(email, nam, phnNo, yr, coms, eventCode) {
         var newRefVariable = refVariable.push();
         newRefVariable.set(
             {
-                email: email,
-                name: name
+                Email: email,
+                Name: nam,
+                Phone: phnNo,
+                Year: yr,
+                Comments: coms,
+                ForEvent: eventCode
             }
         );
     }

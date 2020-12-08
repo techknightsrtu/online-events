@@ -53,7 +53,7 @@ function addModal(eventName, eventDesc, eventCode){
                        <p class="modal-description">${eventDesc}</p></div>
 
                        <div class="modal-body">
-                            <form class="regform" name="registrationForm">
+                            <form class="regform" name="registrationForm" id="${eventCode}">
                                 <input type="text" name="name" id="name" placeholder="name" required>
                                 <input type="email" name="email" id="email" placeholder="email" required>
                                 <input type="number" name="phone-number" id="phone-number" placeholder="phone-number" required>

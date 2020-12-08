@@ -16,8 +16,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   
   <style>
-     th{
-       border: 1px solid #ddd;
+     th, td{
+       border: 1px solid #222;
+       padding: 10px;
+       font-size: 20px;
      }
   </style>
 
@@ -25,7 +27,7 @@
 </head>
 
 <body>
-  <table>
+  <table id="regTable">
     <thead>
       <tr>
         <th>Event Code</th>
@@ -56,18 +58,19 @@
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script>
-       var eventRef = firebase.database().ref("Events/");
+       var eventRef = firebase.database().ref("regestrationDetails/");
 
         eventRef.on("child_added", function (data, prevChildKey) {
           var newEvent = data.val();
-          document.body.innerHTML += `<tr><td>${newEvent.eventName}</td>
-                                          <td>${newEvent.eventDate}</td>
-                                          <td>${newEvent.eventVenue}</td>
-                                          <td>${newEvent.eventType}</td>
-                                          <td>${newEvent.eventFee}</td>
+          var table = document.querySelector('table');  
+          table.innerHTML += `<tr><td>${newEvent.ForEvent}</td>
+                                          <td>${newEvent.Name}</td>
+                                          <td>${newEvent.Email}</td>
+                                          <td>${newEvent.Year}</td>
+                                          <td>${newEvent.Phone}</td>
                                       </tr>`;
         });
-        
+
   </script>
 
 

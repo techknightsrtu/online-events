@@ -73,56 +73,59 @@ function addModal(eventName, eventDesc, eventCode){
 
                     </div>
                 </div>
-            </div>`
+            </div>`;
           
             var modal = document.querySelector('.modal');
             modal.setAttribute('id', eventCode);
-            var form = document.querySelector('form');
-            form.setAttribute('id', eventCode);          
-            
+            // var form = document.querySelector('form');
+            // form.setAttribute('id', eventCode);          
             firebasePush(eventCode);
 }
 
-function firebasePush(eventCode) {
+function firebasePush() {
     //sending data to firebase database
     var refVariable = firebase.database().ref().child('regestrationDetails');
     //on submit event
-    document.querySelector(`#${eventCode}`).addEventListener("submit", submitForm);
+    var form = document.querySelectorAll('form');
+    for (let i = 0; i < form.length; i++) {
+        form[i].addEventListener("submit", submitForm);
+        function submitForm(e) {
 
-    function submitForm(e) {
-        
-        e.preventDefault();
-        //to prevent from loading default functions
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var phoneNo = document.querySelector('#phone-number').value;
-        var year = document.querySelector('#year').value;
-        var comments = document.querySelector('#comments').value;
-        //Just to check if working or Not: console.log(email);
+            e.preventDefault();
+            //to prevent from loading default functions
+            var name = document.querySelector("#name").value;
+            var email = document.querySelector("#email").value;
+            var phoneNo = document.querySelector("#phone-number").value;
+            var year = document.querySelector('#year').value;
+            var comments = document.querySelector('#comments').value;
+            var eventCode = form[i].getAttribute('id');
+            //Just to check if working or Not: console.log(email);
 
-        saveDetails(email, name, phoneNo, year, comments, eventCode);
-        document.querySelector('form').reset();
-    }
-
-    function saveDetails(email, nam, phnNo, yr, coms, eventCode) {
-        if (phnNo.length != 10) {
-            alert('Not a valid phone number');
+            saveDetails(email, name, phoneNo, year, comments, eventCode);
+            //document.querySelector('form').reset();
         }
-        else{
-            var newRefVariable = refVariable.push();
-            newRefVariable.set(
-                {
-                    Email: email,
-                    Name: nam,
-                    Phone: phnNo,
-                    Year: yr,
-                    Comments: coms,
-                    ForEvent: eventCode
-                }
-            );
-            alert('Form Submitted');
+
+        function saveDetails(email, nam, phnNo, yr, coms, eventCode) {
+            if (phnNo.length != 10) {
+                alert('Not a valid phone number');
+            }
+            else {
+                var newRefVariable = refVariable.push();
+                newRefVariable.set(
+                    {
+                        Email: email,
+                        Name: nam,
+                        Phone: phnNo,
+                        Year: yr,
+                        Comments: coms,
+                        ForEvent: eventCode
+                    }
+                );
+                alert('Form Submitted');
+            }
         }
     }
+    
 }
 
 

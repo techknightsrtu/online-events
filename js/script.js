@@ -15,17 +15,17 @@ $(window).scroll(function(){
     $('nav').toggleClass('scrolled', $(this).scrollTop()>imageEnd)
 });
 
-var eventRef = firebase.database().ref("Events/");
 
-eventRef.on("child_added", function (data, prevChildKey) {
-    var newEvent = data.val();
-    
-    var eventRow = document.querySelector('.evt-row');
-    eventRow.innerHTML += `<div class="col-10 col-lg-5 py-3 py-lg-0 card-box">
+function firebaseCallPull(){
+    var eventRef = firebase.database().ref("Events/");
+
+    eventRef.on("child_added", function (data, prevChildKey) {
+        var newEvent = data.val();
+
+        var eventRow = document.querySelector('.evt-row');
+        eventRow.innerHTML += `<div class="col-10 col-lg-5 py-3 py-lg-0 card-box">
           <div class="eventCard">
-            <div class="eventImg">
-              <!-- <div class="date">18<br><span>aug</span></div> -->
-            </div>
+            <div class="eventImg"></div>
             <div class="card-body">
               <h5 class="card-title">${newEvent.eventName}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Catogery</h6>
@@ -37,5 +37,10 @@ eventRef.on("child_added", function (data, prevChildKey) {
             </div>
           </div>
         </div>`;
-    
-});
+        var regBtn = document.querySelector('.register');
+        regBtn.setAttribute('id', `${newEvent.eventName}`);
+
+    });
+}
+
+firebaseCallPull();

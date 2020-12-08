@@ -17,7 +17,7 @@ $(window).scroll(function(){
 });
 
 
-function firebaseCallPull(){
+function firebaseCall(){
     var eventRef = firebase.database().ref("Events/");
 
     eventRef.on("child_added", function (data, prevChildKey) {
@@ -80,6 +80,9 @@ function addModal(eventName, eventDesc, eventCode){
             var form = document.querySelector('form');
             form.setAttribute('id', eventCode);          
             
+
+
+            
             //sending data to firebase database
             var refVariable = firebase.database().ref().child('regestrationDetails');
             //on submit event
@@ -111,4 +114,4 @@ function addModal(eventName, eventDesc, eventCode){
 
 
 
-firebaseCallPull();
+firebaseCall();

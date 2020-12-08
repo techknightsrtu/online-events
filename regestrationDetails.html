@@ -6,16 +6,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-
-  <!--Local stylesheet-->
-
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  
   <style>
+    table{
+      width: 100%;
+      margin-top: 100px;
+    }
+    button{
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      margin: 20px 0;
+      padding: 10px;
+      font-size: 20px;
+    }
      th, td{
        border: 1px solid #222;
        padding: 10px;
@@ -27,6 +32,7 @@
 </head>
 
 <body>
+  
   <table id="regTable">
     <thead>
       <tr>
@@ -38,6 +44,7 @@
       </tr>
     </thead>
   </table>
+  <button onclick="exportTableToExcel('regTable', 'regestration-details')">Export Table Data To Excel File</button>
   
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase.js"></script>
@@ -70,7 +77,37 @@
                                           <td>${newEvent.Phone}</td>
                                       </tr>`;
         });
+        
+        function exportTableToExcel(tableID, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
 
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+            // Create download link element
+            downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+              var blob = new Blob(['\ufeff', tableHTML], {
+                type: dataType
+              });
+              navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+              // Create a link to the file
+              downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+              // Setting the file name
+              downloadLink.download = filename;
+
+              //triggering the function
+              downloadLink.click();
+            }
+          }
   </script>
 
 

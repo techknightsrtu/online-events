@@ -93,12 +93,12 @@ function firebasePush() {
 
             e.preventDefault();
             //to prevent from loading default functions
-            var name = document.querySelector("#name").value;
-            var email = document.querySelector("#email").value;
-            var phoneNo = document.querySelector("#phone-number").value;
-            var year = document.querySelector('#year').value;
-            var comments = document.querySelector('#comments').value;
             var eventCode = form[i].getAttribute('id');
+            var name = document.querySelector(`#${eventCode}` + "> #name").value;
+            var email = document.querySelector(`#${eventCode}` + "> #email").value;
+            var phoneNo = document.querySelector(`#${eventCode}` + "> #phone-number").value;
+            var year = document.querySelector(`#${eventCode}` + "> #year").value;
+            var comments = document.querySelector(`#${eventCode}` + "> #comments").value;
             //Just to check if working or Not: console.log(email);
 
             saveDetails(email, name, phoneNo, year, comments, eventCode);

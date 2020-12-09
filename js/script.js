@@ -122,6 +122,8 @@ function firebasePush() {
                     }
                 );
                 alert('Form Submitted');
+                
+                form[i].reset();
             }
         }
     }

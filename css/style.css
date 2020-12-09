@@ -15,9 +15,6 @@ body{
 .btn-primary{
 	background-color: #007bff!important;
 }
-.btn-primary:hover{
-	background-color: #002db3;
-}
 .btn-secondary{
 	color: #000;
 }

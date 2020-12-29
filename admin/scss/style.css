@@ -2,4 +2,124 @@
   padding: 0;
   margin: 0;
 }
+
+body {
+  overflow-x: hidden;
+  min-height: 100.1vh;
+  width: 100%;
+}
+
+.container {
+  overflow-x: hidden;
+}
+
+.design-elem {
+  overflow: hidden;
+  z-index: -2;
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background-color: #f56a6a;
+  padding: 80px;
+}
+
+.welcome-txt {
+  -webkit-transform: translateY(2em);
+          transform: translateY(2em);
+  text-align: center;
+  color: #fff;
+}
+
+.add-event {
+  width: 60%;
+  margin: auto;
+  margin-top: 80px;
+  display: none;
+  -webkit-animation: opacity 1s;
+          animation: opacity 1s;
+}
+
+.add-event h3 {
+  text-align: center;
+}
+
+.add-event .form {
+  width: 100%;
+  margin: auto;
+}
+
+.add-event .form label, .add-event .form input, .add-event .form button, .add-event .form textarea {
+  display: block;
+  margin: 5px auto;
+  width: 100%;
+}
+
+.add-event .form label, .add-event .form button {
+  margin-top: 25px;
+}
+
+.add-event .form input, .add-event .form button, .add-event .form textarea {
+  border-width: 0.5px;
+  border-radius: 5px;
+  padding: 10px 0px;
+}
+
+.add-event .form button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.add-event .form button:hover {
+  background-color: #f56a6a;
+  color: #fff;
+}
+
+.show-me {
+  display: block;
+}
+
+@-webkit-keyframes crawlUp {
+  0% {
+    -webkit-transform: translateY(50vh);
+            transform: translateY(50vh);
+  }
+  100% {
+    -webkit-transform: translateY(2em);
+            transform: translateY(2em);
+  }
+}
+
+@keyframes crawlUp {
+  0% {
+    -webkit-transform: translateY(50vh);
+            transform: translateY(50vh);
+  }
+  100% {
+    -webkit-transform: translateY(2em);
+            transform: translateY(2em);
+  }
+}
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*# sourceMappingURL=style.css.map */

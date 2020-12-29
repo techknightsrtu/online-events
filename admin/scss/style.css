@@ -28,6 +28,8 @@ body {
   text-align: center;
   background-color: none;
   color: #fff;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
 }
 
 .add-event {

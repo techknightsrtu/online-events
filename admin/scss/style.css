@@ -32,8 +32,7 @@ body {
 
 .add-event {
   width: 60%;
-  margin: auto;
-  margin-top: 80px;
+  margin: 80px auto;
   display: none;
   -webkit-animation: opacity 1s;
           animation: opacity 1s;

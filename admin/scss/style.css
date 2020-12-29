@@ -13,7 +13,7 @@ body {
   overflow: hidden;
   z-index: -2;
   max-width: 100vw;
-  height: 100px;
+  height: 150px;
   width: 100vw;
   margin: auto;
   position: absolute;
@@ -120,6 +120,12 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .welcome-txt h1 {
+    font-size: 1.5em;
   }
 }
 /*# sourceMappingURL=style.css.map */

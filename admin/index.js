@@ -9,3 +9,12 @@ function crawlAnim() {
         addEvt.classList.add('show-me')
     }, 1500);
 }
+
+var form = document.querySelector('form')
+form.addEventListener('submit', fetchValues)
+
+function fetchValues(evt){
+    evt.preventDefault()
+    alert('working')
+}
+

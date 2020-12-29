@@ -50,6 +50,7 @@ function runCipher(e){
     
     if (decryptedPwd === 'zkinqtomnzyajsot') {
         fetchValues()
+        alert('Event Created!')
     }
     else{
         alert('Not Correct')

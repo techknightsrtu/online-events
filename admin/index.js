@@ -1,4 +1,4 @@
-window.addEventListener('load', crawlAnim)
+crawlAnim()
 
 //for animation at the start
 function crawlAnim() {

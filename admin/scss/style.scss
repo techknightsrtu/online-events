@@ -69,7 +69,35 @@ body{
         }
     }
 }
+.key-code{
+    width: 50%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 2px #777;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    padding: 30px;
+    transform: translate(-50%, -50%);
+    label, input, button{
+        display: block;
+        width: 90%;
+        margin: auto;
+        padding: 10px 0;
+        margin-top: 0px;
+    }
+    label, button{
+        margin-top: 10px;
+    }
+    button{
+        width: 10%;
+        border-radius: 5px;
+        border-width: 1px;
+        cursor: pointer;
+    }
 
+}
 .show-me{
     display: block;
 }

@@ -11,7 +11,11 @@ function crawlAnim() {
 }
 
 var form = document.querySelector('form')
-form.addEventListener('submit', fetchValues)
+form.addEventListener('submit', runAuthentication)
+
+function runAuthentication(){
+    
+}
 
 var refVariable = firebase.database().ref().child('Events/');
 function fetchValues(evt){

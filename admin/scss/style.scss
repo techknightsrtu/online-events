@@ -70,11 +70,12 @@ body{
     }
 }
 .key-code{
+    display: none;
     width: 50%;
     border-radius: 10px;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px #777;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     background-color: #fff;
@@ -91,7 +92,6 @@ body{
         margin-top: 10px;
     }
     button{
-        width: 10%;
         border-radius: 5px;
         border-width: 1px;
         cursor: pointer;
@@ -122,5 +122,8 @@ body{
 @media (max-width: 500px){
     .welcome-txt h1{
         font-size: 1.5em;
+    }
+    .key-code{
+        width: 60%;
     }
 }

@@ -161,10 +161,7 @@ nav.scrolled{
 	color: #333333
 }
 .card-body> .event-type{
-	position: absolute;
-	bottom: 28%;
-	left: 5%;
-	font-size: 13px;
+	display: none;
 	letter-spacing: 1px;
 	color: #3E8CD2;
 }
@@ -229,6 +226,7 @@ nav.scrolled{
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 }
+
 
 /*---------------------------
 Footer

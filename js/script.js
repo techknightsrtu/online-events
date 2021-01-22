@@ -106,7 +106,7 @@ function firebasePush() {
         }
 
         function saveDetails(email, nam, phnNo, yr, coms, eventCode) {
-            if (phnNo.length != 10) {
+            if (phnNo.length < 10) {
                 alert('Not a valid phone number');
             }
             else {

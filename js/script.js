@@ -121,15 +121,11 @@ function firebasePush() {
                         ForEvent: eventCode
                     }
                 );
-
                 form[i].reset();
-                
-                alert('Form Submitted. You may close the form.');
+                window.location.reload()
             }
         }
-    }
-    
+    } 
 }
-
-
 firebaseCall();
+
